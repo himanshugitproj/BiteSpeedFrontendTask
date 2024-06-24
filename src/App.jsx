@@ -74,7 +74,11 @@ function App() {
       if (sourceHasEdge) {
         alert('A source handle can only have one edge originating from it.');
       } else {
-        setEdges((eds) => addEdge(params, eds));
+        const newEdge = {
+          ...params,
+          markerEnd: { type: 'arrowclosed' }, // Add the arrow to the new edge
+        };
+        setEdges((eds) => addEdge(newEdge, eds));
       }
     },
     [edges]
